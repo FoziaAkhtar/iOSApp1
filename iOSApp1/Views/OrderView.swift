@@ -60,22 +60,37 @@ struct OrderView: View {
             // Section Title for extra items
             Text("Items Wanted")
                 .font(.headline)
+            
+            // Display List of Items
+            VStack(spacing: 10) {
+                ForEach(itemLists[index], id: \.self) { item in
+                    Text(item)
+                        .font(.body)
+                }
+            }
 
             // Button to save orders
             Button("Save Order") {
-                print("Order saved")
-            }
+                
+            // Prints Message in Consol
+            print("Order saved")
+                
+        }
             .padding()
             .background(Color.red)
             .foregroundColor(.white)
             .cornerRadius(12)
             
+            // Pushes Content Upward
             Spacer()
         }
+        
+        // Add Padding around the screen
         .padding()
     }
 }
 
+// SwiftUI preview
 #Preview {
     OrderView(index: 0)
 }
