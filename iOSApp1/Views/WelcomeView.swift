@@ -1,9 +1,9 @@
-//
+// =============================
 //  WelcomeView.swift
 //  iOSApp1
 //
-//  Created by Fozia on 2026-05-24.
-//
+//  Created by Fozia
+// =============================
 
 import SwiftUI
 
@@ -15,33 +15,35 @@ struct WelcomeView: View {
             
             Spacer()
             
-            // Tim Hortons Icon
+            // Added Tim Hortons Icon
             Image(systemName: "cup.and.saucer.fill")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 120, height: 120)
                 .foregroundColor(.red)
             
-            // App Title
+            // Added App Title
             Text("TimRun")
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
-            // Subtitle
+            // Added Subtitle
             Text("Team Coffee Run Organizer")
                 .font(.title3)
                 .foregroundColor(.gray)
             
-            // Description
+            // Added Description
             Text("Save team orders, manage coffee runs, and make Tim Hortons trips easier for everyone.")
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
             
-            // Start Button
+            // Added Start Button
             Button(action: {
+                
+            // Print Message in Consol when button is tabbed
                 print("Start Tim Run")
             }) {
-                Text("Start Order")
+                    Text("Start Order")  // Button text
                     .font(.headline)
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -51,12 +53,9 @@ struct WelcomeView: View {
             }
             .padding(.horizontal)
             
+            // Pushes Bottom Text downards
             Spacer()
             
-            // Bottom Text
-            Text("Powered by SwiftUI")
-                .font(.caption)
-                .foregroundColor(.gray)
         }
         .padding()
     }
