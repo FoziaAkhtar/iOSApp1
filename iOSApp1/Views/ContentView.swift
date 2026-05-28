@@ -9,45 +9,47 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    
     var body: some View {
-
-        TabView {
-
-            // === Welcome Page ===
-
-            WelcomeView()
-
-            // === Existing Order Pages ===
-
-            ForEach(0..<4) { index in
-
-                OrderView(index: index)
-
+        
+        // ===  Navigation ===
+        NavigationStack {
+            
+            TabView {
+                
+                // === Welcome Page ===
+                
+                WelcomeView()
+                
+                // === Existing Order Pages ===
+                
+                ForEach(0..<4) { index in
+                    
+                    OrderView(index: index)
+                    
+                }
+                
+                // === New Pages ===
+                
+                RatingView()
+                
+                HistoryView()
+                
             }
-
-            // === New Pages ===
-
-            RatingView()
-
-            HistoryView()
-
-        }
-
-        .tabViewStyle(
-
-            PageTabViewStyle(
-
-                indexDisplayMode: .never
-
+            
+            .tabViewStyle(
+                
+                PageTabViewStyle(
+                    
+                    indexDisplayMode: .never
+                    
+                )
+                
             )
-
-        )
-
+            
+        }
     }
-
 }
-
 // Preview Section
 
 #Preview {
