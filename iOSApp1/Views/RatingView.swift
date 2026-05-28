@@ -2,7 +2,7 @@
 //  RatingView.swift
 //  iOSApp1
 // ======================================
-//  Created by Fozia on 2026-05-28.
+//  Created by Fozia
 // ======================================
 
 import SwiftUI
@@ -36,16 +36,29 @@ struct RatingView: View {
             Text(
 
                 "Rate Your Experience"
+                
+                )
+                    .font(.largeTitle)
 
-            )
+                    .fontWeight(.bold)
+            
 
-            .font(.title)
-             
+            Text(
+
+                       "How was your coffee order today?"
+
+                       )
+
+                       .foregroundColor(.gray)
+
             // ===========================
             // Star Rating
+            // Rating Card
             // ===========================
-            
-            HStack{
+
+            VStack(spacing:20){
+                
+              HStack{
                 
                 // ====Created 5 stars====
                 
@@ -95,20 +108,68 @@ struct RatingView: View {
 
             )
 
-            // Pushes Content Upward
+            //==== Pushes Content Upward =========
             Spacer()
 
         }
 
-        // Screen padding
-        .padding()
+        // ==== Screen padding ======
 
-    }
+        .frame(maxWidth:.infinity)
 
-}
+                   .background(
+
+                       Color.gray.opacity(0.15)
+
+                   )
+
+                   .cornerRadius(20)
+
+
+                   // =============================
+                   // Navigation To History Page
+                   // =============================
+
+                   NavigationLink(
+
+                       destination:
+
+                       HistoryView()
+
+                   ){
+
+                       Text("View Order History")
+
+                           .font(.headline)
+
+                           .padding()
+
+                           .frame(maxWidth:.infinity)
+
+                           .background(Color.red)
+
+                           .foregroundColor(.white)
+
+                           .cornerRadius(12)
+
+                   }
+
+
+                   Spacer()
+
+               }
+
+               .padding()
+
+           }
+
+       }
+
+
+// Preview Section
 
 #Preview{
 
-    RatingView()
+RatingView()
 
-}
+       }
