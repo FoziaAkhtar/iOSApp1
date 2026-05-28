@@ -8,23 +8,23 @@
 
 import SwiftUI
 
-// Header section shown at the top of each order page
+// === Header section shown at the top of each order page ===
 struct HeaderView: View {
     
-    // Stores the person's name
+    // === Stores the person's name ===
     let personName: String
     
     var body: some View {
         
-        // Main vertical layout
+        // === Main vertical layout ===
         VStack {
             
-            // Display Persons Name
+            // === Display Persons Name ===
             Text(personName)
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
-            // Display Page icons indicator
+            // === Display Page icons indicator ===
             HStack {
                 
                 Image(systemName: "1.circle")
@@ -33,14 +33,14 @@ struct HeaderView: View {
                 Image(systemName: "4.circle")
             }
             
-            // Icons styling
+            // === Icons styling ===
             .font(.title2)
             .foregroundColor(.red)
         }
     }
 }
 
-// SwiftUI Previews
+// Previews Section
 #Preview(traits: .sizeThatFitsLayout) {
     HeaderView(personName: "Fozia")
 }
