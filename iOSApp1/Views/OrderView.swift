@@ -9,87 +9,239 @@
 import SwiftUI
 
 struct OrderView: View {
-    
-    // Array to store team members names
-    let personNames = ["Fozia", "Ali", "Sarah", "John"]
-    
-    // Array to store main coffee orders
-    let mainOrders = [
+
+    let personNames = [
+
+        "Fozia",
+        "Ali",
+        "Sarah",
+        "John"
+
+    ]
+
+    let coffeeOrders = [
+
         "Large Double Double",
         "Ice Capp",
         "French Vanilla",
         "Medium Coffee"
+
     ]
-    
-    // Array to store extra items for each orders
-    let itemLists = [
-        ["Coffee", "2 Cream", "2 Sugar", "Bagel"],
-        ["Ice Capp", "Chocolate Dip Donut"],
-        ["French Vanilla", "Hash Brown"],
-        ["Medium Coffee", "Milk", "Muffin"]
+
+    let items = [
+
+        ["Coffee","2 Cream","2 Sugar","Bagel"],
+
+        ["Ice Capp","Chocolate Donut"],
+
+        ["French Vanilla","Hash Brown"],
+
+        ["Medium Coffee","Milk","Muffin"]
+
     ]
-    
-    // selected order index ( current )
-    let index: Int
-    
+
+    let index:Int
+
+    @State private var selectedItems:[String] = []
+
+    @State private var countdown = 3
+
+    @State private var showCountdown = false
+
+
     var body: some View {
-        
-        // main vertical layout
-        VStack(spacing: 20) {
-            
-            
-            // Header View displaying Person name
-            HeaderView(personName: personNames[index])
-            
-            
-            // coffee Icon / Red Color
-            Image(systemName: "cup.and.saucer.fill")
-                .font(.system(size: 80))
-                .foregroundColor(.red)
-            
-            // Order Title
-            Text("Order:")
+
+        VStack(spacing:20){
+
+            HeaderView(
+
+                personName:
+
+                personNames[index]
+
+            )
+
+            Image(systemName:
+
+                "cup.and.saucer.fill"
+
+            )
+
+            .font(.system(size:80))
+
+            .foregroundColor(.red)
+
+
+            Text("Order")
+
                 .font(.headline)
-            
-            // Display Main Orders
-            Text(mainOrders[index])
-                .font(.title2)
-                .fontWeight(.bold)
-            
-            // Section Title for extra items
-            Text("Items Wanted")
+
+            Text(
+
+                coffeeOrders[index]
+
+            )
+
+            .font(.title2)
+
+            .bold()
+
+
+            Text("Select Items")
+
                 .font(.headline)
-            
-            // Display List of Items
-            VStack(spacing: 10) {
-                ForEach(itemLists[index], id: \.self) { item in
-                    Text(item)
-                        .font(.body)
+
+
+            ForEach(
+
+                items[index],
+
+                id:\.self
+
+            ){ item in
+
+                Button{
+
+                    selectItem(item)
+
                 }
+
+                label:{
+
+                    HStack{
+
+                        Text(item)
+
+                        Spacer()
+
+                        if selectedItems.contains(item){
+
+                            Image(
+
+                                systemName:
+
+                                "checkmark.circle.fill"
+
+                            )
+
+                        }
+
+                    }
+
+                    .padding()
+
+                    .foregroundColor(
+
+                        selectedItems.contains(item)
+
+                        ?
+
+                        .green
+
+                        :
+
+                        .black
+
+                    )
+
+                }
+
             }
 
-            // Button to save orders
-            Button("Save Order") {
-                
-            // Prints Message in Consol
-            print("Order saved")
-                
-        }
+
+            if showCountdown{
+
+                Text(
+
+                "Saving Order In \(countdown)"
+
+                )
+
+            }
+
+
+            Button("Save Order"){
+
+                startCountdown()
+
+            }
+
             .padding()
+
+            .frame(maxWidth:.infinity)
+
             .background(Color.red)
+
             .foregroundColor(.white)
-            .cornerRadius(12)
-            
-            // Pushes Content Upward
+
+            .cornerRadius(10)
+
             Spacer()
+
         }
-        
-        // Add Padding around the screen
+
         .padding()
+
     }
+
+
+    func selectItem(_ item:String){
+
+        if selectedItems.contains(item){
+
+            selectedItems.removeAll{
+
+                $0 == item
+
+            }
+
+        }
+
+        else{
+
+            selectedItems.append(item)
+
+        }
+
+    }
+
+
+    func startCountdown(){
+
+        countdown = 3
+
+        showCountdown = true
+
+        Timer.scheduledTimer(
+
+            withTimeInterval:1,
+
+            repeats:true
+
+        ){
+
+            timer in
+
+            countdown -= 1
+
+            if countdown == 0{
+
+                timer.invalidate()
+
+                showCountdown = false
+
+                print("Saved")
+
+            }
+
+        }
+
+    }
+
 }
 
-// SwiftUI preview
-#Preview {
-    OrderView(index: 0)
+#Preview{
+
+    OrderView(index:0)
+
 }
