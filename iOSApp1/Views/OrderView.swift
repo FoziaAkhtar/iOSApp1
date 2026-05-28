@@ -1,19 +1,15 @@
 
 // =================================
-//  OrderView.swift
-//  iOSApp1
+// OrderView.swift
+// iOSApp1
 // =================================
-//  Created by Fozia
-// ================================
 
 import SwiftUI
 
 struct OrderView: View {
-    
-    // =============================
-    // Names of team members
-    // =============================
-    
+
+    // === Team Member Names ===
+
     let personNames = [
 
         "Fozia",
@@ -23,10 +19,8 @@ struct OrderView: View {
 
     ]
 
-    // ==================================
-    // Main coffee order for each person
-    // ==================================
-    
+    // === Coffee Orders ====
+
     let coffeeOrders = [
 
         "Large Double Double",
@@ -35,10 +29,8 @@ struct OrderView: View {
         "Medium Coffee"
 
     ]
-    
-    // ==================================
-    // Extra items for each order
-    // ==================================
+
+    // === Extra Items =====
 
     let items = [
 
@@ -51,20 +43,17 @@ struct OrderView: View {
         ["Medium Coffee","Milk","Muffin"]
 
     ]
-    
-    // ==================================
-    // Stores current page number
-    // ==================================
+
+    // === Current Page Number ===
 
     let index:Int
-    
-    
-    // ====== Stores selected items ====
+
+    // === Selected Items ====
+
     @State private var selectedItems:[String] = []
-    
-    
-    // ====== Countdown Variables ========
-    
+
+    // === Countdown ====
+
     @State private var countdown = 3
 
     @State private var showCountdown = false
@@ -72,28 +61,24 @@ struct OrderView: View {
 
     var body: some View {
 
-        // Main Vertical layout
-        
         VStack(spacing:20){
 
-            // ===========================
-            // Header Section
-            // ===========================
-            
+            // ===============================
+            // Header
+            // ===============================
+
             HeaderView(
 
-                // == Shoe person name ==
-                
                 personName:
 
                 personNames[index]
 
             )
 
-            // ==========================
-            // coffee icon
-            // ==========================
-            
+            // ===============================
+            // Coffee Icon
+            // ===============================
+
             Image(systemName:
 
                 "cup.and.saucer.fill"
@@ -104,17 +89,14 @@ struct OrderView: View {
 
             .foregroundColor(.red)
 
-            // =============================
-            // Order Title
-            // =============================
+
+            // ================================
+            // Main Order
+            // ================================
 
             Text("Order")
 
                 .font(.headline)
-            
-            // =============================
-            // Show Mian Order
-            // =============================
 
             Text(
 
@@ -127,17 +109,14 @@ struct OrderView: View {
             .bold()
 
 
-            // =============================
-            // Items Selection
-            // =============================
-            
+            // =================================
+            // Item Selection
+            // =================================
+
             Text("Select Items")
 
                 .font(.headline)
 
-            // =============================
-            // Display Items list
-            // =============================
 
             ForEach(
 
@@ -148,8 +127,7 @@ struct OrderView: View {
             ){ item in
 
                 Button{
-                    
-                    // main Item pressed
+
                     selectItem(item)
 
                 }
@@ -162,10 +140,6 @@ struct OrderView: View {
 
                         Spacer()
 
-                        // ============================
-                        // Show checkmark when selected
-                        // ============================
-                        
                         if selectedItems.contains(item){
 
                             Image(
@@ -181,12 +155,7 @@ struct OrderView: View {
                     }
 
                     .padding()
-                    
 
-                    // ==================================
-                    // changes Color if Selected
-                    // ==================================
-                    
                     .foregroundColor(
 
                         selectedItems.contains(item)
@@ -207,24 +176,24 @@ struct OrderView: View {
 
 
             // ===============================
-            // Countdown text
+            // Countdown
             // ===============================
-            
+
             if showCountdown{
 
                 Text(
 
-                "Saving Order In \(countdown)"
+                    "Saving Order In \(countdown)"
 
                 )
 
             }
 
 
-            // ===============================
-            // Save button
-            // ===============================
-            
+            // =================================
+            // Save Button
+            // =================================
+
             Button("Save Order"){
 
                 startCountdown()
@@ -241,14 +210,15 @@ struct OrderView: View {
 
             .cornerRadius(10)
 
-            // =================================
+
+            //--------------------------------
             // Navigation Buttons
-            // =================================
+            //--------------------------------
 
             HStack{
 
-                // Show Previous Button
-                
+                // Previous Button
+
                 if index > 0 {
 
                     NavigationLink(
@@ -280,8 +250,8 @@ struct OrderView: View {
                 }
 
 
-                // Show Next Button
-                
+                // ====== Next Button ========
+
                 if index < personNames.count - 1 {
 
                     NavigationLink(
@@ -312,20 +282,46 @@ struct OrderView: View {
 
                 }
 
+                else {
+
+                    NavigationLink(
+
+                        destination:
+
+                        HistoryView()
+
+                    ){
+
+                        Text("View History")
+
+                            .padding()
+
+                            .frame(width:140)
+
+                            .background(Color.red)
+
+                            .foregroundColor(.white)
+
+                            .cornerRadius(10)
+
+                    }
+
+                }
+
             }
 
             Spacer()
+
         }
-        
-        // Add screen padding
 
         .padding()
 
     }
 
-    // ================================
-    // Function Selecting item
-    // ================================
+
+    // ==============================
+    // Select Item Function
+    // ==============================
 
     func selectItem(_ item:String){
 
@@ -347,14 +343,13 @@ struct OrderView: View {
 
     }
 
+
     // ===============================
     // Countdown Function
     // ===============================
 
     func startCountdown(){
-        
 
-        // === Reset CountDown ===
         countdown = 3
 
         showCountdown = true
@@ -369,13 +364,10 @@ struct OrderView: View {
 
             timer in
 
-            // == Reduce countdown every second ==
-            
             countdown -= 1
 
             if countdown == 0{
 
-                // ===== STOP TIMER =====
                 timer.invalidate()
 
                 showCountdown = false
@@ -391,7 +383,6 @@ struct OrderView: View {
 }
 
 // Preview Section
-
 #Preview{
 
     OrderView(index:0)
