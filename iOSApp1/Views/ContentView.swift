@@ -14,11 +14,11 @@ struct ContentView: View {
 
         TabView {
 
-            // Welcome Page
+            // === Welcome Page ===
 
             WelcomeView()
 
-            // Existing Order Pages
+            // === Existing Order Pages ===
 
             ForEach(0..<4) { index in
 
@@ -26,7 +26,7 @@ struct ContentView: View {
 
             }
 
-            // New Pages
+            // === New Pages ===
 
             RatingView()
 
@@ -47,6 +47,8 @@ struct ContentView: View {
     }
 
 }
+
+// Preview Section
 
 #Preview {
 
