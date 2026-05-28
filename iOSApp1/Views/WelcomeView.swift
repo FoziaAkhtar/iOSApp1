@@ -40,25 +40,37 @@ struct WelcomeView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
             
-            // === Added Start Button ===
-            Button(action: {
-                
-                // === Print Message in Consol when button is tabbed ===
-                print("Start Tim Run")
-            }) {
-                
-                // ===  Button text ===
-                Text("Start Order")
-                    .font(.headline)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
-            }
-            .padding(.horizontal)
+            // =====================================
+            // === Added Start Button Navigation ===
+            // =====================================
             
-            // === Pushes Bottom Text downards ===
+            NavigationLink(
+
+                destination:
+
+                OrderView(index:0)
+
+            ){
+
+                Text("Start Order")
+
+                    .font(.headline)
+
+                    .padding()
+
+                    .frame(maxWidth:.infinity)
+
+                    .background(Color.red)
+
+                    .foregroundColor(.white)
+
+                    .cornerRadius(12)
+
+            }
+            
+            .padding(.horizontal)
+                        
+                        
             Spacer()
             
             // === Bottom Text ===
@@ -68,10 +80,11 @@ struct WelcomeView: View {
             
         }
         .padding()
-    }
-}
+ }
+ }
 
 // preview Section
 #Preview {
+    
     WelcomeView()
 }
