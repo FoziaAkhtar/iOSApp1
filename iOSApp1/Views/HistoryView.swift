@@ -23,7 +23,9 @@ struct HistoryView: View {
 
         "Ahmad",
 
-        "Abbas"
+        "Abbas",
+        
+        "Ayat"
 
     ]
 

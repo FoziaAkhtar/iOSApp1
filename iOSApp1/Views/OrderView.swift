@@ -15,7 +15,8 @@ struct OrderView: View {
         "Fozia",
         "Ali",
         "Ahmad",
-        "Abbas"
+        "Abbas",
+        "Ayat"
 
     ]
 
