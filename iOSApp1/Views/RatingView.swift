@@ -19,17 +19,17 @@ struct RatingView: View {
         // Main vertical Layout
         VStack(spacing:30){
 
-            //===========================
-            // Header
-            //===========================
+        //===========================
+        // Header
+        //===========================
             HeaderView(
 
                 personName:  "Rating"
 
             )
-            // ===========================
-            // Screen
-            // ===========================
+        // ===========================
+        // Screen
+        // ===========================
             
             Text("Rate Your Experience")
             
@@ -42,16 +42,15 @@ struct RatingView: View {
 
                        .foregroundColor(.gray)
 
-            // ===========================
-            // Star Rating
-            // Rating Card
-            // ===========================
+        // ===========================
+        // Star Rating
+        // ===========================
 
             VStack(spacing:20){
                 
               HStack{
                 
-                // ====Created 5 stars====
+        // ==== Created 5 stars ====
                 
                 ForEach(1...5,id:\.self){
 
@@ -73,7 +72,7 @@ struct RatingView: View {
 
                     )
                     
-                    // Make Stars bigger
+        // ==== Make Stars bigger =========
                     .font(.largeTitle)
                     
                     // Make Stars yellow
@@ -91,11 +90,11 @@ struct RatingView: View {
 
             }
             
-            //====== Show Current Rating ==========
+        //====== Show Current Rating ==========
 
             Text("Rating: \(rating)/5")
 
-            //==== Pushes Content Upward =========
+        //==== Pushes Content Upward =========
             
             .padding ()
 

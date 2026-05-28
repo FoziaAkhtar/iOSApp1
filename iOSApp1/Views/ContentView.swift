@@ -13,39 +13,40 @@ struct ContentView: View {
     var body: some View {
         
         // ===  Navigation ===
+        
         NavigationStack {
             
             TabView {
                 
-                // === Welcome Page ===
+        // === Welcome Page ===
                 
-                WelcomeView()
+        WelcomeView()
                 
-                // === Existing Order Pages ===
+        // === Existing Order Pages ===
                 
-                ForEach(0..<4) { index in
+        ForEach(0..<4) { index in
                     
-                    OrderView(index: index)
+        OrderView(index: index)
                     
-                }
+    }
                 
-                // === New Pages ===
+        // === New Pages ===
                 
-                RatingView()
+        RatingView()
                 
-                HistoryView()
+         HistoryView()
                 
-            }
+    }
             
-            .tabViewStyle(
+        .tabViewStyle(
                 
-                PageTabViewStyle(
+            PageTabViewStyle(
                     
-                    indexDisplayMode: .never
+                indexDisplayMode: .never
                     
-                )
+           )
                 
-            )
+        )
             
         }
     }

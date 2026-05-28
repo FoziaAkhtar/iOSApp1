@@ -16,16 +16,18 @@ struct HeaderView: View {
     
     var body: some View {
         
-        // === Main vertical layout ===
+    // === Main vertical layout ===
         VStack {
             
-            // === Display Persons Name ===
+    // === Display Persons Name ===
+            
             Text(personName)
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
-            // === Display Page icons indicator ===
-            HStack {
+    // === Display Page icons indicator ===
+            
+    HStack {
                 
                 Image(systemName: "1.circle")
                 Image(systemName: "2.circle")
@@ -33,7 +35,8 @@ struct HeaderView: View {
                 Image(systemName: "4.circle")
             }
             
-            // === Icons styling ===
+    // === Icons styling ===
+            
             .font(.title2)
             .foregroundColor(.red)
         }

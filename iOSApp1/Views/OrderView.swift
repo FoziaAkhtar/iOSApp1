@@ -63,9 +63,9 @@ struct OrderView: View {
 
         VStack(spacing:20){
 
-            // ===============================
-            // Header
-            // ===============================
+    // ===============================
+    // Header
+    // ===============================
 
             HeaderView(
 
@@ -75,9 +75,9 @@ struct OrderView: View {
 
             )
 
-            // ===============================
-            // Coffee Icon
-            // ===============================
+    // ===============================
+    // Coffee Icon
+    // ===============================
 
             Image(systemName:
 
@@ -90,9 +90,9 @@ struct OrderView: View {
             .foregroundColor(.red)
 
 
-            // ================================
-            // Main Order
-            // ================================
+    // ================================
+    // Main Order
+    // ================================
 
             Text("Order")
 
@@ -109,75 +109,65 @@ struct OrderView: View {
             .bold()
 
 
-            // =================================
-            // Item Selection
-            // =================================
+    // =================================
+    // Item Selection
+    // =================================
 
             Text("Select Items")
 
                 .font(.headline)
 
 
-            ForEach(
+        ForEach(
 
-                items[index],
+            items[index],
 
-                id:\.self
+            id:\.self
 
-            ){ item in
+        ){ item in
 
-                Button{
+            Button{
 
-                    selectItem(item)
+                selectItem(item)
 
-                }
+            }
 
-                label:{
+            label:{
 
-                    HStack{
+                HStack{
 
-                        Text(item)
+                Text(item)
 
-                        Spacer()
+            Spacer()
 
-                        if selectedItems.contains(item){
+                    if selectedItems.contains(item){
 
-                            Image(
-
-                                systemName:
-
-                                "checkmark.circle.fill"
-
-                            )
-
-                        }
-
-                    }
-
-                    .padding()
-
-                    .foregroundColor(
-
-                        selectedItems.contains(item)
-
-                        ?
-
-                        .green
-
-                        :
-
-                        .black
-
-                    )
+                        Image( systemName:"checkmark.circle.fill")
 
                 }
 
             }
 
+            .padding()
 
-            // ===============================
-            // Countdown
-            // ===============================
+            .foregroundColor(
+
+            selectedItems.contains(item)
+
+                ?
+
+                .green : .black
+
+            )
+
+        }
+
+    }
+
+
+    // ===============================
+    // Countdown
+    // ===============================
 
             if showCountdown{
 
@@ -189,10 +179,9 @@ struct OrderView: View {
 
             }
 
-
-            // =================================
-            // Save Button
-            // =================================
+    // =================================
+   // Save Button
+  // =================================
 
             Button("Save Order"){
 
@@ -211,72 +200,72 @@ struct OrderView: View {
             .cornerRadius(10)
 
 
-    //--------------------------------
+    // ==============================
     // Navigation Buttons
-    //--------------------------------
+    // ==============================
 
             HStack{
                 
-                // Previous Button
+    // ====== Previous Button =======
                 
-                if index > 0 {
+        if index > 0 {
                     
-                    NavigationLink(
+            NavigationLink(
                         
-                        destination:
+             destination:
                             
-                            OrderView(
+                OrderView(
                                 
-                                index: index - 1
+                 index: index - 1
                                 
-                            )
+              )
                         
-                    ){
+          ){
                         
-                        Text("Previous")
+            Text("Previous")
                         
-                            .padding()
+                .padding()
                         
-                            .frame(width:120)
+                .frame(width:120)
                         
-                            .background(Color.gray)
+                .background(Color.gray)
                         
-                            .foregroundColor(.white)
+                .foregroundColor(.white)
                         
-                            .cornerRadius(10)
+                .cornerRadius(10)
                         
-                    }
+            }
                     
-                }
+        }
                 
                 
-              // ====== Next Button ========
+    // ====== Next Button ========
                 
-                if index < personNames.count - 1 {
+        if index < personNames.count - 1 {
                     
-                    NavigationLink(
+            NavigationLink(
                         
-                        destination:
+                destination:
                             
-                            OrderView(
+                    OrderView(
                                 
-                                index: index + 1
+                        index: index + 1
                                 
-                            )
+                )
                         
-                    ){
+            ){
                         
-                        Text("Next")
+                Text("Next")
                         
-                            .padding()
+                    .padding()
                         
-                            .frame(width:120)
+                    .frame(width:120)
                         
-                            .background(Color.red)
+                    .background(Color.red)
                         
-                            .foregroundColor(.white)
+                    .foregroundColor(.white)
                         
-                            .cornerRadius(10)
+                    .cornerRadius(10)
                         
                     }
                     
@@ -284,35 +273,35 @@ struct OrderView: View {
                 
                 else {
                     
-                    // Last person goes to Rating Page
+    // Last person goes to Rating Page
                     
-                    NavigationLink(
+            NavigationLink(
                         
-                        destination:
+                destination:
                             
-                            RatingView()
+                RatingView()
                         
-                    ){
+            ){
                         
-                        Text("Go To Rating")
+              Text("Go To Rating")
                         
-                            .padding()
+                    .padding()
                         
-                            .frame(width:140)
+                    .frame(width:140)
                         
-                            .background(Color.red)
+                    .background(Color.red)
                         
-                            .foregroundColor(.white)
+                    .foregroundColor(.white)
                         
-                            .cornerRadius(10)
+                    .cornerRadius(10)
                         
-                }
-                    
             }
-                
+                    
         }
+                
+    }
 
-            Spacer()
+        Spacer()
 
         }
 

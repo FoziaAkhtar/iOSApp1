@@ -49,55 +49,43 @@ struct HistoryView: View {
 
         VStack{
 
-            // ===========================
-            // Header Section
-            // ===========================
+        // ===========================
+        // Header Section
+        // ===========================
 
-            HeaderView(
+        HeaderView(
 
-                personName:
+        personName: "History")
 
-                "History"
+        // ===========================
+        // Screen Title
+        // ===========================
 
-            )
-
-            // ===========================
-            // Screen Title
-            // ===========================
-
-            Text(
-
-                "Previous Orders"
-
-            )
+        Text( "Previous Orders" )
 
             .font(.title)
 
-            // ===========================
-            // Order History List
-            // ===========================
+        // ===========================
+        // Order History List
+        // ===========================
 
             List{
 
-                // Loop through array indexes
+        // Loop through array indexes
 
-                ForEach(
+            ForEach(
 
-                    0..<orderHistory.count,
+                0..<orderHistory.count,
 
-                    id:\.self
+                id:\.self
 
-                ){
+        ){
 
-                    index in
+            index in
 
-                    // === Display Name + Order ====
+        // === Display Name + Order ====
 
-                    Text(
-
-                        "\(personNames[index]) - \(orderHistory[index])"
-
-                    )
+           Text("\(personNames[index]) - \(orderHistory[index])")
 
                 }
 
