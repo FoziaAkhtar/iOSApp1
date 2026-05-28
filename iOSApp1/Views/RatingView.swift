@@ -1,20 +1,27 @@
-//
+// =====================================
 //  RatingView.swift
 //  iOSApp1
-//
+// ======================================
 //  Created by Fozia on 2026-05-28.
-//
+// ======================================
 
 import SwiftUI
 
+// rating Screens
+
 struct RatingView: View {
 
+    // Stores rating values
     @State private var rating = 0
 
     var body: some View {
 
+        // Main vertical Layout
         VStack(spacing:30){
 
+            //===========================
+            // Header
+            //===========================
             HeaderView(
 
                 personName:
@@ -22,7 +29,10 @@ struct RatingView: View {
                 "Rating"
 
             )
-
+            // ===========================
+            // Screen
+            // ===========================
+            
             Text(
 
                 "Rate Your Experience"
@@ -30,10 +40,15 @@ struct RatingView: View {
             )
 
             .font(.title)
-
-
+             
+            // ===========================
+            // Star Rating
+            // ===========================
+            
             HStack{
-
+                
+                // ====Created 5 stars====
+                
                 ForEach(1...5,id:\.self){
 
                     number in
@@ -53,13 +68,17 @@ struct RatingView: View {
                         "star"
 
                     )
-
+                    
+                    // Make Stars bigger
                     .font(.largeTitle)
-
+                    
+                    // Make Stars yellow
                     .foregroundColor(.yellow)
-
+                    
+                    // When tapping stars
                     .onTapGesture{
 
+                        // Show Rating numbers
                         rating = number
 
                     }
@@ -67,6 +86,8 @@ struct RatingView: View {
                 }
 
             }
+            
+            //====== Show Current Rating ==========
 
             Text(
 
@@ -74,10 +95,12 @@ struct RatingView: View {
 
             )
 
+            // Pushes Content Upward
             Spacer()
 
         }
 
+        // Screen padding
         .padding()
 
     }
