@@ -1,14 +1,18 @@
-//
+// ========================
 //  HistoryView.swift
 //  iOSApp1
-//
-//  Created by Fozia on 2026-05-28.
-//
+// =========================
+//  Created by Fozia
+// =========================
 
 import SwiftUI
 
 struct HistoryView: View {
 
+    // ===========================
+    // Stores previous orders
+    // ===========================
+    
     let orderHistory = [
 
         "Large Double Double",
@@ -22,19 +26,34 @@ struct HistoryView: View {
     ]
 
     var body: some View {
+        
+        // === Main vertical Layout ===
 
         VStack{
 
+            // ========================
+            // Header Section
+           // =========================
+            
             HeaderView(
 
+                // == Shows page title ==
                 personName:
 
                 "History"
 
             )
-
+            
+            // =========================
+            // Screen Title
+            // =========================
+            
             Text(
 
+                // =====================
+                // Order History List
+                // =====================
+                
                 "Previous Orders"
 
             )
@@ -53,6 +72,7 @@ struct HistoryView: View {
 
                     order in
 
+                    // ==== Display Each order ====
                     Text(order)
 
                 }
@@ -64,6 +84,7 @@ struct HistoryView: View {
     }
 
 }
+// Preview Section
 
 #Preview{
 
