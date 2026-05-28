@@ -241,8 +241,80 @@ struct OrderView: View {
 
             .cornerRadius(10)
 
-            Spacer()
+            // =================================
+            // Navigation Buttons
+            // =================================
 
+            HStack{
+
+                // Show Previous Button
+                
+                if index > 0 {
+
+                    NavigationLink(
+
+                        destination:
+
+                        OrderView(
+
+                            index: index - 1
+
+                        )
+
+                    ){
+
+                        Text("Previous")
+
+                            .padding()
+
+                            .frame(width:120)
+
+                            .background(Color.gray)
+
+                            .foregroundColor(.white)
+
+                            .cornerRadius(10)
+
+                    }
+
+                }
+
+
+                // Show Next Button
+                
+                if index < personNames.count - 1 {
+
+                    NavigationLink(
+
+                        destination:
+
+                        OrderView(
+
+                            index: index + 1
+
+                        )
+
+                    ){
+
+                        Text("Next")
+
+                            .padding()
+
+                            .frame(width:120)
+
+                            .background(Color.red)
+
+                            .foregroundColor(.white)
+
+                            .cornerRadius(10)
+
+                    }
+
+                }
+
+            }
+
+            Spacer()
         }
         
         // Add screen padding
