@@ -1,3 +1,5 @@
+
+
 // ========================
 //  HistoryView.swift
 //  iOSApp1
@@ -10,9 +12,25 @@ import SwiftUI
 struct HistoryView: View {
 
     // ===========================
-    // Stores previous orders
+    // Store Person Names
     // ===========================
-    
+
+    let personNames = [
+
+        "Fozia",
+
+        "Ali",
+
+        "Ahmad",
+
+        "Abbas"
+
+    ]
+
+    // ===========================
+    // Store Previous Orders
+    // ===========================
+
     let orderHistory = [
 
         "Large Double Double",
@@ -26,54 +44,60 @@ struct HistoryView: View {
     ]
 
     var body: some View {
-        
-        // === Main vertical Layout ===
+
+        // Main Vertical Layout
 
         VStack{
 
-            // ========================
+            // ===========================
             // Header Section
-           // =========================
-            
+            // ===========================
+
             HeaderView(
 
-                // == Shows page title ==
                 personName:
 
                 "History"
 
             )
-            
-            // =========================
+
+            // ===========================
             // Screen Title
-            // =========================
-            
+            // ===========================
+
             Text(
 
-                // =====================
-                // Order History List
-                // =====================
-                
                 "Previous Orders"
 
             )
 
             .font(.title)
 
+            // ===========================
+            // Order History List
+            // ===========================
+
             List{
+
+                // Loop through array indexes
 
                 ForEach(
 
-                    orderHistory,
+                    0..<orderHistory.count,
 
                     id:\.self
 
                 ){
 
-                    order in
+                    index in
 
-                    // ==== Display Each order ====
-                    Text(order)
+                    // === Display Name + Order ====
+
+                    Text(
+
+                        "\(personNames[index]) - \(orderHistory[index])"
+
+                    )
 
                 }
 
@@ -84,6 +108,8 @@ struct HistoryView: View {
     }
 
 }
+
+
 // Preview Section
 
 #Preview{
