@@ -24,30 +24,21 @@ struct RatingView: View {
             //===========================
             HeaderView(
 
-                personName:
-
-                "Rating"
+                personName:  "Rating"
 
             )
             // ===========================
             // Screen
             // ===========================
             
-            Text(
-
-                "Rate Your Experience"
-                
-                )
+            Text("Rate Your Experience")
+            
                     .font(.largeTitle)
 
                     .fontWeight(.bold)
             
 
-            Text(
-
-                       "How was your coffee order today?"
-
-                       )
+            Text("How was your coffee order today?")
 
                        .foregroundColor(.gray)
 
@@ -102,14 +93,11 @@ struct RatingView: View {
             
             //====== Show Current Rating ==========
 
-            Text(
-
-                "Rating: \(rating)/5"
-
-            )
+            Text("Rating: \(rating)/5")
 
             //==== Pushes Content Upward =========
-            Spacer()
+            
+            .padding ()
 
         }
 
@@ -117,59 +105,59 @@ struct RatingView: View {
 
         .frame(maxWidth:.infinity)
 
-                   .background(
+        .background(
 
-                       Color.gray.opacity(0.15)
+            Color.gray.opacity(0.15)
 
-                   )
+        )
 
-                   .cornerRadius(20)
-
-
-                   // =============================
-                   // Navigation To History Page
-                   // =============================
-
-                   NavigationLink(
-
-                       destination:
-
-                       HistoryView()
-
-                   ){
-
-                       Text("View Order History")
-
-                           .font(.headline)
-
-                           .padding()
-
-                           .frame(maxWidth:.infinity)
-
-                           .background(Color.red)
-
-                           .foregroundColor(.white)
-
-                           .cornerRadius(12)
-
-                   }
+        .cornerRadius(20)
 
 
-                   Spacer()
+        // =============================
+        // Navigation To History Page
+       // =============================
 
-               }
+        NavigationLink(
+
+        destination:
+
+        HistoryView()
+
+        ){
+
+            Text("View Order History")
+
+               .font(.headline)
 
                .padding()
 
-           }
+               .frame(maxWidth:.infinity)
 
-       }
+                .background(Color.red)
+
+                .foregroundColor(.white)
+
+                .cornerRadius(12)
+
+    }
+
+
+        Spacer()
+
+    }
+
+        .padding()
+
+    }
+
+}
 
 
 // Preview Section
 
 #Preview{
 
-RatingView()
+   RatingView()
 
-       }
+}
