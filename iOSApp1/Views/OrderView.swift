@@ -7,41 +7,45 @@
 import SwiftUI
 
 struct OrderView: View {
-
+    
     // === Team Member Names ===
-
+    
     let personNames = [
-
+        
         "Fozia",
         "Ali",
         "Ahmad",
         "Abbas",
         "Ayat"
-
+        
+        
     ]
-
+    
     // === Coffee Orders ====
-
+    
     let coffeeOrders = [
-
+        
         "Large Double Double",
         "Ice Capp",
         "French Vanilla",
-        "Medium Coffee"
-
+        "Medium Coffee",
+        "Oreo Ice capp"
+        
     ]
-
+    
     // === Extra Items =====
-
+    
     let items = [
-
+        
         ["Coffee","2 Cream","2 Sugar","Bagel"],
-
+        
         ["Ice Capp","Chocolate Donut"],
-
+        
         ["French Vanilla","Hash Brown"],
-
-        ["Medium Coffee","Milk","Muffin"]
+        
+        ["Medium Coffee","Milk","Muffin"],
+        
+        ["Oreo Ice Capp"]
 
     ]
 

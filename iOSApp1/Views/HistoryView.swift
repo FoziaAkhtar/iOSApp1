@@ -26,7 +26,7 @@ struct HistoryView: View {
         "Abbas",
         
         "Ayat"
-
+        
     ]
 
     // ===========================
@@ -41,7 +41,9 @@ struct HistoryView: View {
 
         "French Vanilla",
 
-        "Medium Coffee"
+        "Medium Coffee",
+        
+        "Oreo Ice capp"
 
     ]
 
